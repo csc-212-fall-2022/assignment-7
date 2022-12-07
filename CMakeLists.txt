@@ -20,3 +20,10 @@ include(cmake/Valgrind.cmake)
 
 # Use include(CTest) rather than enable_testing() to get Valgrind working
 include(CTest)
+
+add_library(Graph assignment7/Graph.hpp assignment7/Graph.cpp)
+
+add_executable(GraphTest assignment7/Graph.test.cpp)
+target_link_libraries(GraphTest Graph Doctest)
+
+add_test(GraphTest GraphTest)
